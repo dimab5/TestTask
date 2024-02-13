@@ -7,9 +7,9 @@ WITH RECURSIVE ManagerChain AS (
 
     SELECT e.ID, e.CHIEF_ID, mc.ChainLength + 1
     FROM EMPLOYEE e
-    JOIN ManagerChain mc 
+    JOIN ManagerChain mc
     ON e.CHIEF_ID = mc.ID
-    WHERE mc IS NOT NULL
+    WHERE mc.ID IS NOT NULL
 )
 
 SELECT MAX(ChainLength) AS MaxChainLength
